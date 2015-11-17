@@ -10,6 +10,10 @@
   <servlet>
   	<servlet-name>sampleServlet</servlet-name>
   	<servlet-class>com.autentia.training.javabasico.web.servlet.SampleServlet</servlet-class>
+  	<init-param>
+  		<param-name>sampleParam</param-name>
+  		<param-value>Hello, world!</param-value>
+  	</init-param>
   </servlet>
   
   <servlet>
