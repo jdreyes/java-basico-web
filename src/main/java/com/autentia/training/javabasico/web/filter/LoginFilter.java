@@ -1,4 +1,4 @@
-package com.autentia.training.web.filter;
+package com.autentia.training.javabasico.web.filter;
 
 import java.io.IOException;
 

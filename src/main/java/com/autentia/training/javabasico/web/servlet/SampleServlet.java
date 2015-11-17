@@ -1,4 +1,4 @@
-package com.autentia.training.web.servlet;
+package com.autentia.training.javabasico.web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;

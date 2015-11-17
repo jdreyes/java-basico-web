@@ -4,27 +4,27 @@
   
   <filter>
   	<filter-name>loginFilter</filter-name>
-  	<filter-class>com.autentia.training.web.filter.LoginFilter</filter-class>
+  	<filter-class>com.autentia.training.javabasico.web.filter.LoginFilter</filter-class>
   </filter>
   
   <servlet>
   	<servlet-name>sampleServlet</servlet-name>
-  	<servlet-class>com.autentia.training.web.servlet.SampleServlet</servlet-class>
+  	<servlet-class>com.autentia.training.javabasico.web.servlet.SampleServlet</servlet-class>
   </servlet>
   
   <servlet>
   	<servlet-name>loginServlet</servlet-name>
-  	<servlet-class>com.autentia.training.web.servlet.LoginServlet</servlet-class>
+  	<servlet-class>com.autentia.training.javabasico.web.servlet.LoginServlet</servlet-class>
   </servlet>
   
   <servlet>
   	<servlet-name>catalogServlet</servlet-name>
-  	<servlet-class>com.autentia.training.web.servlet.CatalogServlet</servlet-class>
+  	<servlet-class>com.autentia.training.javabasico.web.servlet.CatalogServlet</servlet-class>
   </servlet>
   
   <servlet>
   	<servlet-name>logoutServlet</servlet-name>
-  	<servlet-class>com.autentia.training.web.servlet.LogoutServlet</servlet-class>
+  	<servlet-class>com.autentia.training.javabasico.web.servlet.LogoutServlet</servlet-class>
   </servlet>
   
   <filter-mapping>
@@ -53,6 +53,6 @@
   </servlet-mapping>
   
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

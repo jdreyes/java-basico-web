@@ -1,7 +1,6 @@
-package com.autentia.training.web.servlet;
+package com.autentia.training.javabasico.web.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,12 +50,16 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("store/catalog");
 
 		} else {
-			final RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-			final PrintWriter writer = resp.getWriter();
-			writer.println("<font color=red>Wrong user / password. Please try again</font>");
-			rd.include(req, resp);
+//			final RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
+//			final PrintWriter writer = resp.getWriter();
+//			writer.println("<font color=red>Wrong user / password. Please try again</font>");
+//			rd.include(req, resp);
+//			
+//			writer.close();
 			
-			writer.close();
+			final RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
+			req.setAttribute("loginError", "User / password were incorrect. Please try again!");
+			rd.forward(req, resp);
 		}
 	}
 }

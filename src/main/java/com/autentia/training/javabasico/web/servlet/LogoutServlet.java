@@ -1,4 +1,4 @@
-package com.autentia.training.web.servlet;
+package com.autentia.training.javabasico.web.servlet;
 
 import java.io.IOException;
 
@@ -25,8 +25,8 @@ public class LogoutServlet extends HttpServlet {
 		if(req.getSession() != null) { 
 			req.getSession().invalidate();
 		}
-		
-		resp.sendRedirect(req.getContextPath() + "/login.html");
+	
+		resp.sendRedirect(req.getContextPath() + "/login.jsp");
 		
 	}
 }
