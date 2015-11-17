@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,8 @@ public class LoginServlet extends HttpServlet {
 
 	private static final String USER = "admin";
 	private static final String PASSWORD = "admin";
+	
+	private static final int MAX_EXPIRATION_SECONDS = 30;
 	
 	/**
 	 * 
@@ -37,22 +40,16 @@ public class LoginServlet extends HttpServlet {
 			//Session
 			final HttpSession session = req.getSession(true);
 			
-			session.setMaxInactiveInterval(30);//seconds
+			session.setMaxInactiveInterval(MAX_EXPIRATION_SECONDS);//seconds
 			
-			final PrintWriter writer = resp.getWriter();
+			session.setAttribute("user", user);
 			
-			writer.println("<P>Welcome, ");
-			writer.println(user.trim());
-			writer.println("</P>");
-			writer.println("<P>");
-			writer.println("Your session ID is: ");
-			writer.println(session.getId());
-			writer.println("</P>");
+			final Cookie cookie = new Cookie("user", user);
+			cookie.setMaxAge(MAX_EXPIRATION_SECONDS);
+			resp.addCookie(cookie);
 			
-			RequestDispatcher rd = req.getRequestDispatcher("/store/catalog.html");
-			rd.include(req, resp);
-			
-			writer.close();
+			resp.sendRedirect("store/catalog");
+
 		} else {
 			final RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
 			final PrintWriter writer = resp.getWriter();

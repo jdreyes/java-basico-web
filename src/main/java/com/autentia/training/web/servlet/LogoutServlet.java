@@ -14,6 +14,10 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -8267162015311943135L;
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,6 +26,7 @@ public class LogoutServlet extends HttpServlet {
 			req.getSession().invalidate();
 		}
 		
-		req.getRequestDispatcher("/login.html").forward(req, resp);
+		resp.sendRedirect(req.getContextPath() + "/login.html");
+		
 	}
 }
