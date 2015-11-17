@@ -1,4 +1,6 @@
 .stockItem {
 	border-width: 1;
 	border: solid;
+	width: 50%;
+	text-align: center;
 }

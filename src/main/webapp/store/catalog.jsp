@@ -35,24 +35,15 @@
 			<h3><jsp:getProperty name="videogame" property="name"/></h3>
 			<hr/>
 			<p><jsp:getProperty name="videogame" property="description"/> 
-				<span>
-					<strong>
-						<jsp:getProperty name="videogame" property="price"/> euro
-					</strong>
-				</span> 
 			</p>
+			<p><strong><jsp:getProperty name="videogame" property="price"/> euro</strong></p>
 		</div>
 		
 		<div class="stockItem">
 			<h3><jsp:getProperty name="autentiabox360" property="name"/></h3>
 			<hr/>
-			<p><jsp:getProperty name="autentiabox360" property="description"/> 
-				<span>
-					<strong>
-						<jsp:getProperty name="autentiabox360" property="price"/> euro
-					</strong>
-				</span> 
-			</p>
+			<p><jsp:getProperty name="autentiabox360" property="description"/></p>
+			<p><strong><jsp:getProperty name="autentiabox360" property="price"/> euro</strong></p>
 		</div>
 		
 	</div>
@@ -70,6 +61,9 @@
 		<p><strong>Page:</strong> <%= page %></p>
 	</div>
 	--%>
+	
+	<br/>
+	
 	<form action="../logout" method="post">
 		<input type="submit" value="Logout"/>
 	</form>
