@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CatalogServlet extends HttpServlet {
 	
@@ -43,6 +44,15 @@ public class CatalogServlet extends HttpServlet {
 //		writer.println(req.getSession().getId());
 //		writer.println("</P>");
 		
+
+		//Shopping cart should be calculated dinamically. 
+		//Here we put its information directly
+		final HttpSession session = req.getSession();
+		
+		session.setAttribute("shoppingCartNItems", 3);
+		session.setAttribute("shoppingCartTotalAmount", 469.35);
+		
+		//redirect
 		req.getRequestDispatcher("/store/catalog.jsp").include(req, resp);
 		
 		writer.close();

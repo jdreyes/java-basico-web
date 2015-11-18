@@ -23,12 +23,29 @@
 </jsp:useBean>
 
 <body>
-
-	<p>Welcome <%= session.getAttribute("user") %></p>
 	
-	<p>Your session ID is: <%= session.getId() %></p>
+	<div id="userInfoContent">
+		<p>Welcome <%= session.getAttribute("user") %></p>
+		<p>Your session ID is: <%= session.getId() %></p>
 	
-	<div>
+		<form action="../logout" method="post">
+			<input type="submit" value="Logout"/>
+		</form>
+		
+	</div>
+	
+	<hr/>
+	
+	<div id="shoppingCartContent">
+		<h3>Your shopping cart:</h3>
+		
+		<p>Number of items: <%=session.getAttribute("shoppingCartNItems")%> items</p>
+		<p>Total amount: <%=session.getAttribute("shoppingCartTotalAmount")%> euro</p>
+	</div>
+	
+	<hr/>
+	
+	<div id="stockContent">
 		<h2>Items in stock:</h2>
 		
 		<div class="stockItem">
@@ -38,7 +55,7 @@
 			</p>
 			<p><strong><jsp:getProperty name="videogame" property="price"/> euro</strong></p>
 		</div>
-		
+
 		<div class="stockItem">
 			<h3><jsp:getProperty name="autentiabox360" property="name"/></h3>
 			<hr/>
@@ -48,25 +65,7 @@
 		
 	</div>
 	
-	<%-- Current JSP variables 
-	<div id="variables">
-		<h3>JSP Variables:</h3>
-		<p><strong>Request:</strong> <%= request %></p>
-		<p><strong>Response:</strong> <%= response %></p>
-		<p><strong>Out:</strong> <%= out %></p>
-		<p><strong>Session:</strong> <%= session %></p>
-		<p><strong>Application:</strong> <%= application %></p>
-		<p><strong>Config:</strong> <%= config %></p>
-		<p><strong>PageContext:</strong> <%= pageContext %></p>
-		<p><strong>Page:</strong> <%= page %></p>
-	</div>
-	--%>
-	
 	<br/>
-	
-	<form action="../logout" method="post">
-		<input type="submit" value="Logout"/>
-	</form>
 	
 </body>
 </html>
