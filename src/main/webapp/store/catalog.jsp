@@ -41,6 +41,8 @@
 		
 		<p>Number of items: <%=session.getAttribute("shoppingCartNItems")%> items</p>
 		<p>Total amount: <%=session.getAttribute("shoppingCartTotalAmount")%> euro</p>
+	
+		<input type="button" value="Checkout!" disabled/>
 	</div>
 	
 	<hr/>
@@ -53,7 +55,8 @@
 			<hr/>
 			<p><jsp:getProperty name="videogame" property="description"/> 
 			</p>
-			<p><strong><jsp:getProperty name="videogame" property="price"/> euro</strong></p>
+			<p><strong><jsp:getProperty name="videogame" property="price"/> euro <strike>(46.67 euro)</strike></strong></p>
+			<input type="button" value="Add to cart" disabled/>
 		</div>
 
 		<div class="stockItem">
@@ -61,6 +64,7 @@
 			<hr/>
 			<p><jsp:getProperty name="autentiabox360" property="description"/></p>
 			<p><strong><jsp:getProperty name="autentiabox360" property="price"/> euro</strong></p>
+			<input type="button" value="Add to cart" disabled/>
 		</div>
 		
 	</div>
