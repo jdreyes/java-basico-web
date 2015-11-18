@@ -23,7 +23,15 @@ public class LoginFilter implements Filter {
 			chain.doFilter(request, response);
 			return;
 		}
-			
+
+//		Cookie[] cookies = req.getCookies();
+//		
+//		for(Cookie cookie : cookies) {
+//			if(cookie.getName().equalsIgnoreCase("user")) {
+//				chain.doFilter(request, response);
+//			}
+//		}
+		
 		//Not logged in!
 		httpReq.getRequestDispatcher("/logout").forward(request, response);
 	}

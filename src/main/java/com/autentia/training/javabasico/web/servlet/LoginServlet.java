@@ -37,10 +37,16 @@ public class LoginServlet extends HttpServlet {
 		if(user.equalsIgnoreCase(USER) && password.equalsIgnoreCase(PASSWORD)) {
 			
 			//Session
-			final HttpSession session = req.getSession(true);
+			HttpSession session = req.getSession(true);
+			
+			//If a current session exists
+			if(!session.isNew()) {
+				//Create a new, fresh session
+				session.invalidate();
+				session = req.getSession(true);
+			}
 			
 			session.setMaxInactiveInterval(MAX_EXPIRATION_SECONDS);//seconds
-			
 			session.setAttribute("user", user);
 			
 			final Cookie cookie = new Cookie("user", user);

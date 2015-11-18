@@ -1,7 +1,6 @@
 package com.autentia.training.javabasico.web.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +23,7 @@ public class CatalogServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		final PrintWriter writer = resp.getWriter();
+//		final PrintWriter writer = resp.getWriter();
 		
 //		String user = "";
 //		
@@ -44,7 +43,11 @@ public class CatalogServlet extends HttpServlet {
 //		writer.println(req.getSession().getId());
 //		writer.println("</P>");
 		
-
+// 		req.getRequestDispatcher("/store/catalog.jsp").include(req, resp);
+		
+//		writer.close();
+		
+		
 		//Shopping cart should be calculated dinamically. 
 		//Here we put its information directly
 		final HttpSession session = req.getSession();
@@ -53,8 +56,8 @@ public class CatalogServlet extends HttpServlet {
 		session.setAttribute("shoppingCartTotalAmount", 469.35);
 		
 		//redirect
-		req.getRequestDispatcher("/store/catalog.jsp").include(req, resp);
+		req.getRequestDispatcher("/store/catalog.jsp").forward(req, resp);
 		
-		writer.close();
+		
 	}
 }
