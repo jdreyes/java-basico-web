@@ -31,6 +31,11 @@
   	<servlet-class>com.autentia.training.javabasico.web.servlet.LogoutServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>shoppingCartServlet</servlet-name>
+  	<servlet-class>com.autentia.training.javabasico.web.servlet.ShoppingCartServlet</servlet-class>
+  </servlet>
+  
   <filter-mapping>
   	<filter-name>loginFilter</filter-name>
   	<url-pattern>/store/*</url-pattern>
@@ -39,6 +44,11 @@
   <servlet-mapping>
   	<servlet-name>catalogServlet</servlet-name>
   	<url-pattern>/store/catalog</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>shoppingCartServlet</servlet-name>
+  	<url-pattern>/store/shoppingCart/*</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>

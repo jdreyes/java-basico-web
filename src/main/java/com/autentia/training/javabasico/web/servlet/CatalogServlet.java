@@ -52,8 +52,10 @@ public class CatalogServlet extends HttpServlet {
 		//Here we put its information directly
 		final HttpSession session = req.getSession();
 		
-		session.setAttribute("shoppingCartNItems", 3);
-		session.setAttribute("shoppingCartTotalAmount", 469.35);
+		if(session.getAttribute("shoppingCartNItems") == null) {
+			session.setAttribute("shoppingCartNItems", 0);
+			session.setAttribute("shoppingCartTotalAmount", 0.0);
+		}
 		
 		//redirect
 		req.getRequestDispatcher("/store/catalog.jsp").forward(req, resp);

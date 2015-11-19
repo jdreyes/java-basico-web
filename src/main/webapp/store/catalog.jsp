@@ -56,7 +56,10 @@
 			<p><jsp:getProperty name="videogame" property="description"/> 
 			</p>
 			<p><strong><jsp:getProperty name="videogame" property="price"/>€ <strike>(46.67€)</strike></strong></p>
-			<input type="button" value="Add to cart" disabled/>
+			
+			<form action="shoppingCart/addToCart?price=<jsp:getProperty name="videogame" property="price"/>" method="post">
+				<input type="submit" value="Add to cart"/>
+			</form>
 		</div>
 
 		<div class="stockItem">
@@ -64,7 +67,10 @@
 			<hr/>
 			<p><jsp:getProperty name="autentiabox360" property="description"/></p>
 			<p><strong><jsp:getProperty name="autentiabox360" property="price"/>€</strong></p>
-			<input type="button" value="Add to cart" disabled/>
+			
+			<form action="shoppingCart/addToCart?price=<jsp:getProperty name="autentiabox360" property="price"/>" method="post">
+				<input type="submit" value="Add to cart"/>
+			</form>
 		</div>
 		
 	</div>
