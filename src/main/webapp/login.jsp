@@ -15,6 +15,10 @@
 		
 		<h2>User login</h2>
 		
+		<div>
+			<p>User and password have to be the same</p>
+		</div>
+		
 		<form id="loginForm" action="login" method="post">
 
 			<div>

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.autentia.training.javabasico.core.bean.Product"%>
-<%@ page import="java.util.List"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +11,6 @@
 
 <link rel="stylesheet" type="text/css" href="../css/catalog.css">
 </head>
-
-<%
-	List<Product> productList = (List<Product>)request.getAttribute("productList");
-%>
 
 <body>
 	
@@ -43,20 +40,21 @@
 	<div id="stockContent">
 		<h2>Items in stock:</h2>
 		
-		<% for (Product product : productList) { %>
-		<div class="stockItem">
-			<h3><%=product.getName()%></h3>
-			<hr/>
-			<p><%=product.getDescription()%> 
-			</p>
-			<p><strong><%=product.getPrice().floatValue()%></strong></p>
-			
-			<form action="shoppingCart/addToCart?name=<%=product.getName()%>&price=<%=product.getPrice().floatValue()%>" method="post">
-				<input type="submit" value="Add to cart"/>
-			</form>
-		</div>
+		<c:forEach items="${productList}" var="product">
+		
+			<div class="stockItem">
+				<h3>${product.name}</h3>
+				<hr/>
+				<p>${product.description}
+				</p>
+				<p><strong>${product.price}</strong></p>
+				
+				<form action="shoppingCart/addToCart?price=${product.price}" method="post">
+					<input type="submit" value="Add to cart"/>
+				</form>
+			</div>
 
-		<%}%>
+		</c:forEach>
 		
 	</div>
 	

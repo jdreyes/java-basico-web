@@ -1,14 +1,25 @@
 package com.autentia.training.javabasico.core.bean;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Product {
 
 	private String name;
 	private String description;
-	private float price;
+	private BigDecimal price;
 	
 	public Product() {
 	}
 
+	public static Product valueOf(String name, String description, BigDecimal price) {
+		Product p = new Product();
+		p.setName(name);
+		p.setDescription(description);
+		p.setPrice(price);
+		return p;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -25,13 +36,13 @@ public class Product {
 		this.description = description;
 	}
 
-	public float getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(BigDecimal price) {
+		price.setScale(2, RoundingMode.CEILING);
 		this.price = price;
 	}
-
 	
 }

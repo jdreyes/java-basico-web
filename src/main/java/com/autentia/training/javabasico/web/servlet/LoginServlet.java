@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
-
-	private static final String USER = "admin";
-	private static final String PASSWORD = "admin";
 	
 	private static final int MAX_EXPIRATION_SECONDS = 30;
 	
@@ -34,16 +31,14 @@ public class LoginServlet extends HttpServlet {
 		String user = req.getParameter("user");
 		String password = req.getParameter("password");
 		
-		if(user.equalsIgnoreCase(USER) && password.equalsIgnoreCase(PASSWORD)) {
+		if(user.equalsIgnoreCase(password)) {
 			
 			//Session
 			HttpSession session = req.getSession(true);
 			
 			//If a current session exists
 			if(!session.isNew()) {
-				//Create a new, fresh session
-				session.invalidate();
-				session = req.getSession(true);
+				//TODO: Se establecen parámetros necesarios (wishlist por ejemplo)...
 			}
 			
 			session.setMaxInactiveInterval(MAX_EXPIRATION_SECONDS);//seconds

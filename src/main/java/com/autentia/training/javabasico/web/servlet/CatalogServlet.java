@@ -1,12 +1,17 @@
 package com.autentia.training.javabasico.web.servlet;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.autentia.training.javabasico.core.bean.Product;
 
 public class CatalogServlet extends HttpServlet {
 	
@@ -54,8 +59,15 @@ public class CatalogServlet extends HttpServlet {
 		
 		if(session.getAttribute("shoppingCartNItems") == null) {
 			session.setAttribute("shoppingCartNItems", 0);
-			session.setAttribute("shoppingCartTotalAmount", 0.0);
+			session.setAttribute("shoppingCartTotalAmount", 0.0F);
 		}
+		
+		final List<Product> productList = new ArrayList<Product>();
+		
+		productList.add(Product.valueOf("Videogame", "Bug!-the videogame for Autentia Box 360", new BigDecimal(39.95F)));
+		productList.add(Product.valueOf("Autentia Box 360", "Best console in the world", new BigDecimal(330)));
+		
+		req.setAttribute("productList", productList);
 		
 		//redirect
 		req.getRequestDispatcher("/store/catalog.jsp").forward(req, resp);
