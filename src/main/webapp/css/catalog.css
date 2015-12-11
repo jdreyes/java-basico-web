@@ -1,6 +1,13 @@
-.stockItem {
-	border-width: 1;
-	border: solid;
-	width: 50%;
-	text-align: center;
+div {
+    background-color: #eeeeee;
+
+}
+
+table {
+    border: solid;
+    border-width: 1;
+    background-color: #eeffee;
+    text-align: center;
+    margin-top: 5px;
+    width: 100%;
 }

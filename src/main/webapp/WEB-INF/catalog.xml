@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+	
+	<product>
+		<name>Producto1</name>
+		<description>cool!</description>
+		<price>35.5</price>
+	</product>
+	
+</catalog>

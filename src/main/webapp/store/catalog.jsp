@@ -17,17 +17,19 @@
 
 <body>
 	
-	<div id="userInfoContent">
-		<p>Welcome <%= session.getAttribute("user") %></p>
-		<p>Your session ID is: <%= session.getId() %></p>
+	<h1>Welcome to <%= request.getAttribute("applicationName")%> store (v<%=request.getAttribute("applicationVersion")%>)</h1>
 	
-		<form action="../logout" method="post">
-			<input type="submit" value="Logout"/>
-		</form>
+	<div id="userInfoContent">
+		<p>Welcome <%= session.getAttribute("user") %>. 
+		Your session ID is: <%= session.getId() %>	
+		</p>
 		
+		<form action="../logout" method="post">
+				<input type="submit" value="Logout"/>
+		</form>
+			
 	</div>
 	
-	<hr/>
 	
 	<div id="shoppingCartContent">
 		<h3>Your shopping cart:</h3>
@@ -38,23 +40,27 @@
 		<input type="button" value="Checkout!" disabled/>
 	</div>
 	
-	<hr/>
 	
 	<div id="stockContent">
 		<h2>Items in stock:</h2>
 		
-		<% for (Product product : productList) { %>
-		<div class="stockItem">
-			<h3><%=product.getName()%></h3>
-			<hr/>
-			<p><%=product.getDescription()%> 
-			</p>
-			<p><strong><%=product.getPrice().floatValue()%></strong></p>
+		<table>
 			
-			<form action="shoppingCart/addToCart?name=<%=product.getName()%>&price=<%=product.getPrice().floatValue()%>" method="post">
-				<input type="submit" value="Add to cart"/>
-			</form>
-		</div>
+            
+		<% for (Product product : productList) { %>
+		<tr class="stockItem">
+			<th><%=product.getName()%></th>
+            
+            <tr><td><%=product.getDescription()%></td></tr>
+            <tr><td><strong><%=product.getPrice().floatValue()%></strong></td></tr>
+            <tr>
+            	<td>
+            		<form action="shoppingCart/addToCart?name=<%=product.getName()%>&price=<%=product.getPrice().floatValue()%>" method="post">
+						<input type="submit" value="Add to cart"/>
+					</form>
+				</td>
+            </tr>
+		</tr>
 
 		<%}%>
 		

@@ -2,6 +2,26 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>java-basico-web</display-name>
   
+  <context-param>
+  	<param-name>applicationName</param-name>
+  	<param-value>${displayName}</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>applicationVersion</param-name>
+  	<param-value>1.0</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>author</param-name>
+  	<param-value>Diego</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>catalog</param-name>
+  	<param-value>/WEB-INF/catalog.xml</param-value>
+  </context-param>
+  
   <filter>
   	<filter-name>loginFilter</filter-name>
   	<filter-class>com.autentia.training.javabasico.web.filter.LoginFilter</filter-class>
@@ -14,6 +34,11 @@
   		<param-name>sampleParam</param-name>
   		<param-value>Hello, world!</param-value>
   	</init-param>
+  </servlet>
+  
+   <servlet>
+  	<servlet-name>sampleHttpServlet</servlet-name>
+  	<servlet-class>com.autentia.training.javabasico.web.servlet.SampleHttpServlet</servlet-class>
   </servlet>
   
   <servlet>
@@ -44,6 +69,11 @@
   <servlet-mapping>
   	<servlet-name>catalogServlet</servlet-name>
   	<url-pattern>/store/catalog</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>sampleHttpServlet</servlet-name>
+  	<url-pattern>/sampleHttp</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
