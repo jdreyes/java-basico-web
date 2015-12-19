@@ -19,12 +19,12 @@ public class ShoppingCartServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//Adding new items to user cart
-		String name = req.getParameter("name"); //Not used for now
-		String price = req.getParameter("price");
+		String productName = req.getParameter("name"); //Not used for now
+		String productPrice = req.getParameter("price");
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("shoppingCartNItems", (Integer)session.getAttribute("shoppingCartNItems") + 1);
-		session.setAttribute("shoppingCartTotalAmount", (Float)session.getAttribute("shoppingCartTotalAmount") + Float.valueOf(price));
+		session.setAttribute("shoppingCartTotalAmount", (Float)session.getAttribute("shoppingCartTotalAmount") + Float.valueOf(productPrice));
 		
 		resp.sendRedirect(getServletContext().getContextPath() + "/store/catalog");
 	}

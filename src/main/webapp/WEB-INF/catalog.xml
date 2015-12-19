@@ -2,9 +2,15 @@
 <catalog>
 	
 	<product>
-		<name>Producto1</name>
-		<description>cool!</description>
-		<price>35.5</price>
+		<name>Videogame</name>
+		<description>Bug!-the videogame for Autentia Box 360</description>
+		<price>35</price>
+	</product>
+	
+	<product>
+		<name>Autentia Box 360</name>
+		<description>Best console in the world</description>
+		<price>330</price>
 	</product>
 	
 </catalog>

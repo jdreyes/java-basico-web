@@ -33,7 +33,7 @@
 			<br />
 			
 			<% if(request.getAttribute("loginError") != null) { %>
-			<font color=red><%= request.getAttribute("loginError") %></font>
+			<p style="color:red"><%= request.getAttribute("loginError") %></p>
 			<br />
 			<% } %>
 			

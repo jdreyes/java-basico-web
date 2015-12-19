@@ -49,7 +49,7 @@
 				</p>
 				<p><strong>${product.price}</strong></p>
 				
-				<form action="shoppingCart/addToCart?price=${product.price}" method="post">
+				<form action="shoppingCart/addToCart?name=${product.name}&price=${product.price}" method="post">
 					<input type="submit" value="Add to cart"/>
 				</form>
 			</div>
